@@ -10,7 +10,7 @@ class Config(BaseSettings):
 
     start_date: str = "1970-01-01 00:00:00"
     file_storage: str = "state.json"
-    sleep_time: int = 60
+    sleep_time: int = 10
 
     model_config = SettingsConfigDict(
         env_file_encoding="utf-8",

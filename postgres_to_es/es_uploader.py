@@ -31,5 +31,5 @@ class EsUploader:
         requests.post(
             self.url + "_bulk",
             headers={"Content-Type": "application/json; charset=utf-8"},
-            data=data,
+            data=data.encode("utf-8"),
         )

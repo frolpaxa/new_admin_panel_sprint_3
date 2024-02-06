@@ -1,5 +1,5 @@
 from time import sleep
-
+import contextlib
 import psycopg2
 from psycopg2.extras import RealDictCursor
 
@@ -35,6 +35,8 @@ def run(conf: Config):
         state.set_state("modified", str(last_updated))
 
     finally:
+        with contextlib.suppress(NameError):
+            conn.close()
         sleep(conf.sleep_time)
 
 
